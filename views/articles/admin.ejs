@@ -15,6 +15,8 @@
   <body>
     <div class="container">
       <h1 class="mt-4 mb-4">lyteral's blog</h1>
+      <a href="/articles/new" class="btn btn-success">New Article</a>
+
       <% articles.forEach(article => { %>
       <div class="card mt-4">
         <div class="card-body">
@@ -26,6 +28,16 @@
           <a href="articles/<%= article.slug %>" class="btn btn-primary"
             >Read More</a
           >
+          <a href="articles/edit/<%= article.id %>" class="btn btn-info"
+            >Edit</a
+          >
+          <form
+            action="/articles/<%= article.id %>?_method=DELETE"
+            method="post"
+            class="d-inline"
+          >
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
         </div>
       </div>
       <% }) %>

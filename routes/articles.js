@@ -37,7 +37,7 @@ router.put(
 
 router.delete("/:id", async (req, res) => {
   await Article.findByIdAndDelete(req.params.id);
-  res.redirect("/");
+  res.redirect("/admin");
 });
 
 function saveArticleAndRedirect(path) {

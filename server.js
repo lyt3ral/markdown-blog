@@ -19,5 +19,12 @@ app.get("/", async (req, res) => {
   res.render("articles/index", { articles: articles });
 });
 
+app.get("/admin", async (req, res) => {
+  const articles = await Article.find().sort({
+    createdAt: "desc",
+  });
+  res.render("articles/admin", { articles: articles });
+});
+
 app.use("/articles", articleRouter);
 app.listen(5000);
